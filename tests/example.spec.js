@@ -9,4 +9,8 @@ test('visit UI Test Automation Playground', async ({ page }) => {
   expect(title).toBe('UI Test Automation Playground');
   
   // Add more interactions and assertions as needed
+  //Randomly click on a button
+  const buttons = await page.$$('button');
+  const randomButton = buttons[Math.floor(Math.random() * buttons.length)];
+  await randomButton.click();
 }); 
