@@ -16,7 +16,7 @@ test('Dynamic ID Button Click', async ({ page }) => {
     await page.goto('http://www.uitestingplayground.com/dynamicid');
 
     // XPath using contains() for dynamic ID handling
-    const dynamicButton = "//button[contains(@id, 'btn')]";
+    const dynamicButton = "//button[contains(@class, 'btn')]";
 
     await page.locator(dynamicButton).click();
     await expect(page.locator(dynamicButton)).toBeVisible(); // Ensure button remains interactable
@@ -35,11 +35,13 @@ test('Class Attribute Button Click', async ({ page }) => {
 test('Hidden Layers Button Click', async ({ page }) => {
     await page.goto('http://www.uitestingplayground.com/hiddenlayers');
 
-    // XPath ensuring the element is NOT hidden
-    const visibleButton = "//button[not(contains(@class, 'hidden'))]";
+    // Using a more specific selector with ID
+    const greenButton = "#greenButton";
 
-    await page.locator(visibleButton).click();
-    await expect(page.locator(visibleButton)).toBeVisible(); // Verify button visibility
+    await page.locator(greenButton).click();
+    
+    // Verify the green button remains visible after click
+    await expect(page.locator(greenButton)).toBeVisible();
 });
 
 test('Click Me Button Test', async ({ page }) => {
