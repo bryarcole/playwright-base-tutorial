@@ -32,7 +32,7 @@ test('Find favorite Athlete', async ({ page }) => {
 });
 
 // ========================
-// UI Testing Playground Tests
+// UI Testing Playground Test
 // ========================
 
 /**
